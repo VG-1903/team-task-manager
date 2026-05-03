@@ -1,0 +1,17 @@
+# Nixpacks build configuration for Railway.
+# Forces Node 20 and uses our root build script (which installs both packages
+# and runs prisma generate + migrate deploy + vite build).
+
+[phases.setup]
+nixPkgs = ["nodejs_20", "openssl"]
+
+[phases.install]
+# Skip default install — root package.json has no runtime deps; everything
+# is installed inside the build phase below.
+cmds = ["npm install --ignore-scripts || true"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm start"
