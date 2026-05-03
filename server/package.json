@@ -5,8 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "build": "prisma generate && prisma migrate deploy",
+    "start": "prisma migrate deploy && node src/server.js",
+    "build": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "studio": "prisma studio",
     "seed": "node src/utils/seed.js"
@@ -21,7 +21,6 @@
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
-    "team-task-manager": "file:..",
     "zod": "^3.23.8"
   },
   "devDependencies": {
